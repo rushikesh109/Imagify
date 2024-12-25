@@ -12,8 +12,8 @@ import axios from "axios"
             return res.json({ success:false, message: 'Missing Details'})
         }
 
-        if(user.CreditBalance ===0 || userModel.CreditBalance < 0){
-            return res.json({ success: false, message: 'No Credit Balance', CreditBalance: user.CreditBalance})
+        if(user.creditBalance === 0 || userModel.creditBalance < 0) {
+            return res.json({ success: false, message: 'No Credit Balance', CreditBalance: userModel.creditBalance})
         }
 
  const formData = new FormData()
