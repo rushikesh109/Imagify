@@ -1,4 +1,4 @@
-https://getimagify.vercel.app/# Imagify - AI Text to Image Generator
+https://getimagify.vercel.app Imagify - AI Text to Image Generator
 
 Imagify is a modern, full-stack web application that enables users to generate high-quality images from text descriptions using advanced AI technology. The platform features secure authentication, a credit-based system, and seamless payment integration, providing a robust and scalable solution for creative professionals and enthusiasts.
 
