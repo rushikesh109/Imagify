@@ -1,33 +1,71 @@
-# Imagify - AI Text to Image Generator
+https://getimagify.vercel.app/# Imagify - AI Text to Image Generator
 
-Imagify is a modern web application that allows users to generate images from text descriptions using AI technology. Built with React, Node.js, and MongoDB, it offers a user-friendly interface with secure authentication and a credit-based system.
+Imagify is a modern, full-stack web application that enables users to generate high-quality images from text descriptions using advanced AI technology. The platform features secure authentication, a credit-based system, and seamless payment integration, providing a robust and scalable solution for creative professionals and enthusiasts.
+
+---
+
+## 📑 Table of Contents
+- [Features](#features)
+- [Tech Stack](#tech-stack)
+- [Architecture](#architecture)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [API Documentation](#api-documentation)
+- [Testing](#testing)
+- [Deployment](#deployment)
+- [Security](#security)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+
+---
 
 ## 🚀 Features
-
-- **AI Image Generation**: Convert text descriptions into high-quality images
-- **User Authentication**: Secure login and registration system
+- **AI Image Generation**: Convert text prompts into high-quality images via Clipdrop API
+- **User Authentication**: Secure JWT-based login and registration
 - **Credit System**: Pay-as-you-go model for image generation
-- **Responsive Design**: Works seamlessly across all devices
+- **Responsive Design**: Optimized for all devices
 - **Payment Integration**: Secure payments via Razorpay
 - **User Dashboard**: Track credit balance and usage
+- **Protected API Routes**: Secure backend endpoints
+
+---
 
 ## 🛠️ Tech Stack
 
 ### Frontend
-- React
-- Tailwind CSS
-- Framer Motion
-- Axios
-- React Router DOM
-- React Toastify
+- [React](https://react.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [Axios](https://axios-http.com/)
+- [React Router DOM](https://reactrouter.com/)
+- [React Toastify](https://fkhadra.github.io/react-toastify/)
 
 ### Backend
-- Node.js
-- Express
-- MongoDB
-- JWT Authentication
-- Razorpay API
-- Clipdrop API
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [MongoDB](https://www.mongodb.com/)
+- [JWT](https://jwt.io/)
+- [Razorpay API](https://razorpay.com/docs/api/)
+- [Clipdrop API](https://clipdrop.co/apis)
+
+---
+
+## 🏗️ Architecture
+
+```
+/Imagify
+  |-- client/   # React frontend
+  |-- server/   # Node.js/Express backend
+```
+
+- **Frontend**: SPA built with React, styled with Tailwind CSS, communicates with backend via REST API.
+- **Backend**: Express server, handles authentication, payments, image generation, and user management.
+- **Database**: MongoDB for persistent storage of users, transactions, and credits.
+
+<!-- Optionally, add a Mermaid diagram or image here for architecture visualization -->
+
+---
 
 ## 🏁 Getting Started
 
@@ -39,26 +77,23 @@ Imagify is a modern web application that allows users to generate images from te
 
 ### Installation
 
-1. Clone the repository
+1. **Clone the repository**
 ```bash
 git clone <repository-url>
-cd imagify
+cd Imagify
 ```
 
-2. Install dependencies
+2. **Install dependencies**
 ```bash
-# Install frontend dependencies
-cd client
-npm install
-
-# Install backend dependencies
-cd ../server
-npm install
+# Frontend
+yarn install # or npm install (in /client)
+# Backend
+yarn install # or npm install (in /server)
 ```
 
-3. Environment Variables
+3. **Environment Variables**
 
-Create `.env` in server directory:
+Create `.env` in `/server`:
 ```
 PORT=4000
 MONGODB_URI=your_mongodb_uri
@@ -69,33 +104,23 @@ RAZORPAY_KEY_SECRET=your_razorpay_secret_key
 CURRENCY=USD
 ```
 
-Create `.env` in client directory:
+Create `.env` in `/client`:
 ```
 VITE_BACKEND_URL=http://localhost:4000
 VITE_RAZORPAY_KEY_ID=your_razorpay_key_id
 ```
 
-4. Start the application
+4. **Start the application**
 ```bash
-# Start backend (from server directory)
+# Backend
+cd server
 npm run server
-
-# Start frontend (from client directory)
+# Frontend
+cd ../client
 npm run dev
 ```
 
-## 💳 Available Plans
-
-- **Basic**: 100 credits for $10
-- **Advanced**: 500 credits for $50
-- **Business**: 5000 credits for $250
-
-## 🔒 Security
-
-- JWT based authentication
-- Secure payment processing
-- Encrypted password storage
-- Protected API routes
+---
 
 ## 🎯 Usage
 
@@ -106,6 +131,56 @@ npm run dev
 5. Click generate to create your image
 6. Download or generate more images
 
+<!-- Optionally, add screenshots or GIFs here -->
+
+---
+
+## 📚 API Documentation
+
+> **Note:** For full API details, see `/server/routes/` and `/server/controllers/` or generate docs with Swagger/Postman.
+
+### Main Endpoints
+- `POST /api/user/register` – Register a new user
+- `POST /api/user/login` – Login and receive JWT
+- `GET /api/user/profile` – Get user profile (auth required)
+- `POST /api/image/generate` – Generate image from text (auth & credits required)
+- `POST /api/user/buy-credits` – Purchase credits (auth required)
+
+---
+
+## 🧪 Testing
+
+> Add your test strategy here (e.g., Jest for backend, React Testing Library for frontend). Example:
+
+```bash
+# Backend tests
+cd server
+npm test
+# Frontend tests
+cd ../client
+npm test
+```
+
+---
+
+## 🚀 Deployment
+
+- **Frontend**: Deploy on Vercel, Netlify, or any static hosting.
+- **Backend**: Deploy on Heroku, Render, or any Node.js server.
+- **Environment Variables**: Set securely in your deployment platform.
+- **Database**: Use managed MongoDB (e.g., Atlas) for production.
+
+---
+
+## 🔒 Security
+- JWT-based authentication for all protected routes
+- Secure payment processing via Razorpay
+- Encrypted password storage (bcrypt)
+- Environment variables for all secrets
+- CORS and input validation on backend
+
+---
+
 ## 🤝 Contributing
 
 1. Fork the repository
@@ -114,12 +189,19 @@ npm run dev
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
+**Code Style:**
+- Use Prettier and ESLint for formatting
+- Follow existing folder structure and naming conventions
+
+---
+
 ## 📝 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+---
 
-- Clipdrop API for image generation
-- Razorpay for payment processing
-- All contributors who helped in the development
+## 🙏 Acknowledgments
+- [Clipdrop API](https://clipdrop.co/apis) for image generation
+- [Razorpay](https://razorpay.com/) for payment processing
+- All contributors and open-source libraries
